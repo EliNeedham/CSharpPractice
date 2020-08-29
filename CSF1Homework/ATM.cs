@@ -52,38 +52,64 @@ namespace CSF1Homework
             }
 
             //Once the user has successfully given their account and pin numbers, prompt the user with a menu and ask them if they want to do a deposit, a withdrawal, or exit the application. 
-            Console.WriteLine("\n\nPelase choose from the following options.\nWould you like to \n1)Deposit \n2)Withdrawal \nExit");
 
-            string userOption = Console.ReadLine().ToUpper();
-            switch (userOption)
+            bool returnMenu = true;
+
+            while (returnMenu == true)
             {
-                case "1":
-                case "DEPOSIT":
-                case "D":
-                    Console.WriteLine("Please enter the amount you would like to deposit.");
-                    string deposit = Console.ReadLine();
-                    decimal depositA = decimal.Parse(deposit);
-                    Console.WriteLine($"{depositA:c} has been deposited into account # 12345.");
-                    Console.WriteLine("Would you like to do another deposit?");
+                Console.WriteLine("\n\nPelase choose from the following options.\nWould you like to \n1)Deposit \n2)Withdrawal \nExit");
+                                 
+                string userOption = Console.ReadLine().ToUpper();
+                switch (userOption)
+                {
+                    case "1":
+                    case "DEPOSIT":
+                    case "D":
+                        Console.WriteLine("Please enter the amount you would like to deposit.");
+                        string deposit = Console.ReadLine();
+                        decimal depositA = decimal.Parse(deposit);
+                        Console.WriteLine($"{depositA:c} has been deposited into account # 12345.");
+                        Console.WriteLine("Would you like to execute another transaction? Y/N");
+                        string response = Console.ReadLine().ToUpper();
+                        if (response == "Y")
+                        {
+                            returnMenu = true;
+                        }
+                        else if (response == "N")
+                        {
+                            returnMenu = false;
+                            Console.WriteLine("Thank you, come again!");
+                        }
 
-                    break;
-                case "2":
-                case "W":
-                case "WITHDRAWAL":
-                    Console.WriteLine("Please enter the amount you would like to deposit.");
-                    string withdrawal = Console.ReadLine();
-                    decimal withdrawalA = decimal.Parse(withdrawal);
-                    Console.WriteLine($"{withdrawalA:c} has been withdrawn from account # 12345.");
-                    Console.WriteLine("Would you like to do another withdrawal?");
-                    break;
-                case "3":
-                case "X":
-                case "EXIT":
-                case "E":
-                    Console.WriteLine("Thank you for visiting!");
-                    break;
+                        break;
+                    case "2":
+                    case "W":
+                    case "WITHDRAWAL":
+                        Console.WriteLine("Please enter the amount you would like to deposit.");
+                        string withdrawal = Console.ReadLine();
+                        decimal withdrawalA = decimal.Parse(withdrawal);
+                        Console.WriteLine($"{withdrawalA:c} has been withdrawn from account # 12345.");
+                        Console.WriteLine("Would you like to do another withdrawal?");
+                        Console.WriteLine("Would you like to execute another transaction? Y/N");
+                        string response2 = Console.ReadLine().ToUpper();
+                        if (response2 == "Y")
+                        {
+                            returnMenu = true;
+                        }
+                        else if (response2 == "N")
+                        {
+                            returnMenu = false;
+                            Console.WriteLine("Thank you, come again!");
+                        }
+                        break;
+                    case "3":
+                    case "X":
+                    case "EXIT":
+                    case "E":
+                        Console.WriteLine("Thank you for visiting!");
+                        break;
+                }
             }
-
 
 
         }//end Main ()
