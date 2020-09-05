@@ -107,6 +107,7 @@ namespace CSF1Homework
                     case "EXIT":
                     case "E":
                         Console.WriteLine("Thank you for visiting!");
+                        returnMenu = false;
                         break;
                 }
             }
